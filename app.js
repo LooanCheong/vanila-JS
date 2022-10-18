@@ -1,5 +1,9 @@
-function plus(a, b) {
-  console.log(a + b);
-}
+const player = {
+  name: "yejun",
+  sayHello: function (otherPersonName) {
+    console.log("hello!" + otherPersonName + " nice to meet you");
+  },
+};
 
-plus();
+console.log(player.name);
+player.sayHello(" chaehyun");
