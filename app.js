@@ -1,9 +1,9 @@
-const player = {
-  name: "yejun",
-  sayHello: function (otherPersonName) {
-    console.log("hello!" + otherPersonName + " nice to meet you");
-  },
-};
+const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
 
-console.log(player.name);
-player.sayHello(" chaehyun");
+function onLoginBtnClick() {
+  const username = loginInput.value;
+  console.log(username);
+}
+
+loginButton.addEventListener("click", onLoginBtnClick);
