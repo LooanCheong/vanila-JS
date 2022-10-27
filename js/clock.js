@@ -1,3 +1,4 @@
+const AmPm = document.querySelector("h2#ampm");
 const clock = document.querySelector("h2#clock");
 const today = document.querySelector("h3#today");
 
@@ -12,7 +13,8 @@ function getClock() {
   } else {
     ampm = "오후";
   }
-  clock.innerText = ` ${ampm} ${hours}:${minutes}:${seconds}`;
+  AmPm.innerText = ampm;
+  clock.innerText = `${hours}:${minutes}:${seconds}`;
 
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const month = date.getMonth();
