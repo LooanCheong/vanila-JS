@@ -1,5 +1,6 @@
 @import "left.css";
 @import "center.css";
+@import "right.css";
 
 .container {
   display: flex;
