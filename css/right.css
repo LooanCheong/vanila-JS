@@ -1,0 +1,6 @@
+#weather {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 20px;
+}
