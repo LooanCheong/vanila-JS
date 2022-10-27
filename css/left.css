@@ -33,8 +33,16 @@
 }
 
 #todo-list li > button {
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
   color: red;
+  background-color: transparent;
+  border: none;
+}
+
+#todo-list li > button:hover {
+  box-shadow: 0 0 8px;
 }
 
 #todo-list li:first-child {
