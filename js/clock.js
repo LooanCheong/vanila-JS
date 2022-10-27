@@ -1,4 +1,5 @@
 const clock = document.querySelector("h2#clock");
+const today = document.querySelector("h3#today");
 
 function getClock() {
   const date = new Date();
@@ -12,6 +13,11 @@ function getClock() {
     ampm = "pm";
   }
   clock.innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+  const week = ["일", "월", "화", "수", "목", "금", "토"];
+  const month = date.getMonth();
+  const day = date.getDate();
+  today.innerText = `${month + 1}월 ${day}일 ${week[date.getDay()]}요일`;
 }
 
 getClock();
