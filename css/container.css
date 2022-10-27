@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  z-index: 2;
+  width: 30%;
+}
+
+.center {
+  z-index: 2;
+  width: 40%;
+}
+
+.right {
+  z-index: 2;
+  width: 30%;
+}
