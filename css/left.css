@@ -12,6 +12,10 @@
   opacity: 0.5;
 }
 
+#todo-form ::placeholder {
+  color: white;
+}
+
 #todo-list {
   width: 80%;
   height: 60%;
