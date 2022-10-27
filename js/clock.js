@@ -7,12 +7,12 @@ function getClock() {
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
   let ampm = "";
-  if (date.getHours < 12) {
-    ampm = "am";
+  if (date.getHours() < 12) {
+    ampm = "오전";
   } else {
-    ampm = "pm";
+    ampm = "오후";
   }
-  clock.innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+  clock.innerText = ` ${ampm} ${hours}:${minutes}:${seconds}`;
 
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const month = date.getMonth();
