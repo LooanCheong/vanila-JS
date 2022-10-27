@@ -34,6 +34,7 @@
 
 #todo-list li > button {
   margin-right: 10px;
+  color: red;
 }
 
 #todo-list li:first-child {
