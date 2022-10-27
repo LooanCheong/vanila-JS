@@ -2,6 +2,13 @@
 @import "background.css";
 @import "container.css";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
 .hidden {
   display: none;
 }
