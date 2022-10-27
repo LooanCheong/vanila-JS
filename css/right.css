@@ -4,11 +4,11 @@
   top: 15px;
   right: 25px;
   flex-direction: column;
-  text-align: right;
+  text-align: center;
   color: white;
   font-size: 20px;
 }
 
 #weather span:first-child {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
