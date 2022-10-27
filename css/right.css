@@ -1,6 +1,14 @@
 #weather {
   display: flex;
+  position: absolute;
+  top: 15px;
+  right: 25px;
   flex-direction: column;
+  text-align: right;
   color: white;
   font-size: 20px;
+}
+
+#weather span:first-child {
+  margin-bottom: 5px;
 }
