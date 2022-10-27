@@ -21,6 +21,12 @@
 }
 
 /*시계 파트*/
+#ampm {
+  color: white;
+  font-size: 80px;
+  margin-bottom: 15px;
+}
+
 #clock {
   color: white;
   font-size: 80px;
