@@ -8,14 +8,15 @@ const images = [
   "6.jpg",
   "7.jpg",
   "8.jpg",
-  "9.jpg",
-  "10.jpg",
 ];
 
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
-const bgImage = document.createElement("img");
+const bgImg = document.querySelector(".background");
 
-bgImage.src = `img/${chosenImage}`;
+bgImg.style.backgroundImage = `url(img/${chosenImage})`;
+//const bgImage = document.createElement("img");
 
-document.body.appendChild(bgImage);
+//bgImage.src = `img/${chosenImage}`;
+
+//document.body.appendChild(bgImage);
