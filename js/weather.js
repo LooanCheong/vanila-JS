@@ -9,9 +9,13 @@ function onGeoOk(position) {
     .then((data) => {
       const city = document.querySelector("#weather span:first-child");
       const weather = document.querySelector("#weather span:last-child");
+      const tempIcon = document.querySelector("#weather .temp-icon");
+      const icon = data.weather[0].icon;
+      const img = document.createElement("img");
+      tempIcon.append(img);
       city.innerText = `지역: ${data.name}`;
-      weather.innerText = `날씨: ${data.weather[0].main}
-      ${Math.floor(data.main.temp)}°C`;
+      weather.innerText = `${Math.floor(data.main.temp)}°C`;
+      img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     });
 }
 function onGeoError() {
