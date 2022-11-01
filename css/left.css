@@ -30,7 +30,12 @@
 #todo-list li {
   margin: 15px;
   padding-left: 10%;
+  border-radius: 10px;
   font-weight: 700;
+}
+
+#todo-list li:hover {
+  box-shadow: 0 0 8px;
 }
 
 #todo-list li > button {
@@ -47,7 +52,7 @@
 }
 
 #todo-list li:first-child {
-  padding-top: 5%;
+  margin-top: 10%;
 }
 
 /* 음악 추천 파트 */
