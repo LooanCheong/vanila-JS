@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인 페이지</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -47,7 +48,7 @@
           <span></span>
         </div>
         <div class="calendar">
-          <div id="dycalendar"></div>
+          <div id="calendarForm"></div>
         </div>
       </div>
     </div>
@@ -57,14 +58,6 @@
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
-    <script src="js/dycalendar.js"></script>
-    <script>
-      dycalendar.draw({
-        target: "#dycalendar",
-        type: "month",
-        highlighttoday: true,
-        prevnextbutton: "show",
-      });
-    </script>
+    <script src="js/calendar.js"></script>
   </body>
 </html>
