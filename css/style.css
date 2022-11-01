@@ -1,14 +1,24 @@
-/* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css); */
 @import "reset.css";
 @import "background.css";
 @import "container.css";
+@font-face {
+  font-family: "NEXON Lv1 Gothic OTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-wrap: break-word;
-  /* font-family: "Spoqa Han Sans Neo", "sans-serif"; */
+}
+
+body {
+  font-family: "NEXON Lv1 Gothic OTF", sans-serif;
+  font-weight: 300;
 }
 
 .hidden {
