@@ -16,3 +16,15 @@
 
 /* 달력 파트 */
 @import "dycalendar.css";
+@import "calendar.css";
+
+.calendar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 310px;
+  width: 230px;
+  margin-top: 300px;
+  background-color: white;
+  opacity: 0.6;
+}
