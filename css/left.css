@@ -30,6 +30,7 @@
 #todo-list li {
   margin: 15px;
   padding-left: 10%;
+  font-weight: 700;
 }
 
 #todo-list li > button {
@@ -66,6 +67,6 @@
 
 #recommended-music span {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 10px 0;
 }
