@@ -15,16 +15,48 @@
 }
 
 /* 달력 파트 */
-@import "dycalendar.css";
 @import "calendar.css";
-
 .calendar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 310px;
-  width: 230px;
+  width: 80%;
+  height: 40%;
+  color: white;
   margin-top: 300px;
-  background-color: white;
-  opacity: 0.6;
+}
+
+.custom_calendar_table td {
+  text-align: center;
+}
+
+.custom_calendar_table thead.cal_date th {
+  font-size: 1.5rem;
+}
+
+.custom_calendar_table thead.cal_date th button {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+}
+
+.custom_calendar_table thead.cal_week th {
+  background-color: #288cff;
+  color: #fff;
+}
+
+.custom_calendar_table tbody td {
+  cursor: pointer;
+}
+
+.custom_calendar_table tbody td:nth-child(1) {
+  color: red;
+}
+
+.custom_calendar_table tbody td:nth-child(7) {
+  color: #288cff;
+}
+
+.custom_calendar_table tbody td.select_day {
+  background-color: #288cff;
+  color: #fff;
 }
