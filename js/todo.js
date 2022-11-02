@@ -37,6 +37,7 @@ function handleToDoSubmit(event) {
   const newTodoObj = {
     text: newTodo,
     id: Date.now(),
+    is_done: false,
   };
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
@@ -51,4 +52,20 @@ if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
+}
+
+function doneToDo(event) {
+  const tar = event.target.parentElement;
+  for (const i in toDos) {
+    if (toDos[i].id === parseInt(tar.id)) {
+      if (toDos[i].is_done === false) {
+        event.target.classList.add("finishToDo");
+        toDos[i].is_done = true;
+      } else {
+        event.target.classList.remove("finishToDo");
+        toDos[i].is_done = false;
+      }
+    }
+  }
+  saveToDos();
 }
