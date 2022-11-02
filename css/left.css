@@ -56,6 +56,11 @@
   margin-top: 10%;
 }
 
+.finishToDo {
+  text-decoration: line-through;
+  color: gray;
+}
+
 /* 음악 추천 파트 */
 #recommended-music {
   width: 70%;
