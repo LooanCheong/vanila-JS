@@ -46,17 +46,20 @@
 
 /*바로가기 파트*/
 .shortcut {
+  width: 50%;
+  height: 15%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
 }
 
 .shortcut img {
   width: 60px;
   height: 60px;
   border-radius: 10px;
-  margin-right: 30px;
 }
 
 .shortcut a:last-child img {
