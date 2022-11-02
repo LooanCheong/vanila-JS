@@ -1,43 +1,43 @@
 const musics = [
   {
     music: "Blueming",
-    album: "Love poem",
+    album: "미니 5집: Love poem",
   },
   {
     music: "Coin",
-    album: "LILAC",
+    album: "정규 5집: LILAC",
   },
   {
     music: "너랑 나",
-    album: "Last Fantasy",
+    album: "정규 2집: Last Fantasy",
   },
   {
     music: "드라마",
-    album: "조각집",
+    album: "스페셜 미니: 조각집",
   },
   {
     music: "하루 끝",
-    album: "스무 살의 봄",
+    album: "싱글 2집: 스무 살의 봄",
   },
   {
     music: "스물셋",
-    album: "Smash Hits",
+    album: "미니 4집: CHAT-SHIRE",
   },
   {
     music: "이 지금",
-    album: "Palette",
+    album: "정규 4집: Palette",
   },
   {
     music: "팔레트",
-    album: "Palette",
+    album: "정규 4집: Palette",
   },
   {
     music: "좋은 날",
-    album: "Real",
+    album: "미니 3집: Real",
   },
   {
     music: "strawberry moon",
-    album: "strawberry moon",
+    album: "디지털 싱글: strawberry moon",
   },
 ];
 
