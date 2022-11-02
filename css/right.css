@@ -15,7 +15,6 @@
 }
 
 /* 달력 파트 */
-@import "calendar.css";
 #calendarForm {
   display: flex;
   width: 80%;
