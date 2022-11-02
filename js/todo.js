@@ -74,24 +74,3 @@ const toDoLi = document.querySelectorAll("#todo-list li");
 toDoLi.forEach((li) => {
   li.addEventListener("click", doneToDo);
 });
-
-function doneToDoSpan(event) {
-  const tar = event.target.parentElement;
-  for (const i in toDos) {
-    if (toDos[i].id === parseInt(tar.id)) {
-      if (toDos[i].is_done === false) {
-        event.target.classList.add("finishToDo");
-        toDos[i].is_done = true;
-      } else {
-        event.target.classList.remove("finishToDo");
-        toDos[i].is_done = false;
-      }
-    }
-  }
-  saveToDos();
-}
-
-const toDoLiSpan = document.querySelectorAll("#todo-list li span");
-toDoLiSpan.forEach((span) => {
-  span.addEventListener("click", doneToDoSpan);
-});
