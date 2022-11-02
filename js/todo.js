@@ -52,3 +52,12 @@ if (savedToDos !== null) {
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
 }
+
+const toDoli = document.querySelector("#todo-list li");
+
+function finishToDo() {
+  toDoli.style.textDecoration = "line-through";
+  toDoli.style.color = "gray";
+}
+
+toDoli.addEventListener("click", finishToDo);
