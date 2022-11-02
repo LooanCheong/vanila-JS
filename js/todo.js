@@ -69,3 +69,8 @@ function doneToDo(event) {
   }
   saveToDos();
 }
+
+const toDoLi = document.querySelectorAll("#todo-list li span");
+toDoLi.forEach((li) => {
+  li.addEventListener("click", doneToDo);
+});
