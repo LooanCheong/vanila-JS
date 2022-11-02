@@ -55,7 +55,7 @@ if (savedToDos !== null) {
 }
 
 function doneToDo(event) {
-  const tar = event.target.parentElement;
+  const tar = event.target;
   for (const i in toDos) {
     if (toDos[i].id === parseInt(tar.id)) {
       if (toDos[i].is_done === false) {
@@ -70,7 +70,7 @@ function doneToDo(event) {
   saveToDos();
 }
 
-const toDoLi = document.querySelectorAll("#todo-list li span");
+const toDoLi = document.querySelectorAll("#todo-list li");
 toDoLi.forEach((li) => {
   li.addEventListener("click", doneToDo);
 });
