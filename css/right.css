@@ -65,7 +65,7 @@
 
 .custom_calendar_table tbody td:hover {
   transform: scale(1.1);
-  background-color: #fdeffa;
+  background-color: rgba(253, 239, 250, 0.7);
 }
 
 .custom_calendar_table tbody td:nth-child(1) {
