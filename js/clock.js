@@ -4,7 +4,7 @@ const today = document.querySelector("h3#today");
 
 function getClock() {
   const date = new Date();
-  let hours = date.getHours();
+  let hours = String(date.getHours()).padStart(2, "0");
   if (hours > 12) {
     hours = hours - 12;
   }
