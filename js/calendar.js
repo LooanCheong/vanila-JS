@@ -1,101 +1,153 @@
-(function () {
-  calendarMaker($("#calendarForm"), new Date());
-})();
-
-var nowDate = new Date();
-function calendarMaker(target, date) {
-  if (date == null || date == undefined) {
-    date = new Date();
-  }
-  nowDate = date;
-  if ($(target).length > 0) {
-    var year = nowDate.getFullYear();
-    var month = nowDate.getMonth() + 1;
-    $(target).empty().append(assembly(year, month));
-  } else {
-    console.error("custom_calendar Target is empty!!!");
-    return;
-  }
-
-  var thisMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1);
-  var thisLastDay = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, 0);
-
-  var tag = "<tr>";
-  var cnt = 0;
-  //빈 공백 만들어주기
-  for (i = 0; i < thisMonth.getDay(); i++) {
-    tag += "<td></td>";
-    cnt++;
-  }
-
-  //날짜 채우기
-  for (i = 1; i <= thisLastDay.getDate(); i++) {
-    if (cnt % 7 == 0) {
-      tag += "<tr>";
+const init = {
+  monList: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  dayList: [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  today: new Date(),
+  monForChange: new Date().getMonth(),
+  activeDate: new Date(),
+  getFirstDay: (yy, mm) => new Date(yy, mm, 1),
+  getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+  nextMonth: function () {
+    let d = new Date();
+    d.setDate(1);
+    d.setMonth(++this.monForChange);
+    this.activeDate = d;
+    return d;
+  },
+  prevMonth: function () {
+    let d = new Date();
+    d.setDate(1);
+    d.setMonth(--this.monForChange);
+    this.activeDate = d;
+    return d;
+  },
+  addZero: (num) => (num < 10 ? "0" + num : num),
+  activeDTag: null,
+  getIndex: function (node) {
+    let index = 0;
+    while ((node = node.previousElementSibling)) {
+      index++;
     }
+    return index;
+  },
+};
 
-    tag += "<td>" + i + "</td>";
-    cnt++;
-    if (cnt % 7 == 0) {
-      tag += "</tr>";
-    }
-  }
-  $(target).find("#custom_set_date").append(tag);
-  calMoveEvtFn();
+const $calBody = document.querySelector(".cal-body");
+const $btnNext = document.querySelector(".btn-cal.next");
+const $btnPrev = document.querySelector(".btn-cal.prev");
 
-  function assembly(year, month) {
-    var calendar_html_code =
-      "<table class='custom_calendar_table'>" +
-      "<colgroup>" +
-      "<col style='width:81px'/>" +
-      "<col style='width:81px'/>" +
-      "<col style='width:81px'/>" +
-      "<col style='width:81px'/>" +
-      "<col style='width:81px'/>" +
-      "<col style='width:81px'/>" +
-      "<col style='width:81px'/>" +
-      "</colgroup>" +
-      "<thead class='cal_date'>" +
-      "<th><button type='button' class='prev'><</button></th>" +
-      "<th colspan='5'><p><span>" +
-      year +
-      "</span>년 <span>" +
-      month +
-      "</span>월</p></th>" +
-      "<th><button type='button' class='next'>></button></th>" +
-      "</thead>" +
-      "<thead  class='cal_week'>" +
-      "<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>" +
-      "</thead>" +
-      "<tbody id='custom_set_date'>" +
-      "</tbody>" +
-      "</table>";
-    return calendar_html_code;
-  }
-
-  function calMoveEvtFn() {
-    //전달 클릭
-    $(".custom_calendar_table").on("click", ".prev", function () {
-      nowDate = new Date(
-        nowDate.getFullYear(),
-        nowDate.getMonth() - 1,
-        nowDate.getDate()
-      );
-      calendarMaker($(target), nowDate);
-    });
-    //다음날 클릭
-    $(".custom_calendar_table").on("click", ".next", function () {
-      nowDate = new Date(
-        nowDate.getFullYear(),
-        nowDate.getMonth() + 1,
-        nowDate.getDate()
-      );
-      calendarMaker($(target), nowDate);
-    });
-    //일자 선택 클릭
-    $(".custom_calendar_table").on("click", "td", function () {
-      $(".custom_calendar_table .select_day").removeClass("select_day");
-      $(this).removeClass("select_day").addClass("select_day");
-    });
-  }
+/**
+ * @param {number} date
+ * @param {number} dayIn
+ */
+function loadDate(date, dayIn) {
+  document.querySelector(".cal-date").textContent = date;
+  document.querySelector(".cal-day").textContent = init.dayList[dayIn];
 }
+
+/**
+ * @param {date} fullDate
+ */
+function loadYYMM(fullDate) {
+  let yy = fullDate.getFullYear();
+  let mm = fullDate.getMonth();
+  let firstDay = init.getFirstDay(yy, mm);
+  let lastDay = init.getLastDay(yy, mm);
+  let markToday; // for marking today date
+
+  if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+    markToday = init.today.getDate();
+  }
+
+  document.querySelector(".cal-month").textContent = init.monList[mm];
+  document.querySelector(".cal-year").textContent = yy;
+
+  let trtd = "";
+  let startCount;
+  let countDay = 0;
+  for (let i = 0; i < 6; i++) {
+    trtd += "<tr>";
+    for (let j = 0; j < 7; j++) {
+      if (i === 0 && !startCount && j === firstDay.getDay()) {
+        startCount = 1;
+      }
+      if (!startCount) {
+        trtd += "<td>";
+      } else {
+        let fullDate =
+          yy + "." + init.addZero(mm + 1) + "." + init.addZero(countDay + 1);
+        trtd += '<td class="day';
+        trtd += markToday && markToday === countDay + 1 ? ' today" ' : '"';
+        trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+      }
+      trtd += startCount ? ++countDay : "";
+      if (countDay === lastDay.getDate()) {
+        startCount = 0;
+      }
+      trtd += "</td>";
+    }
+    trtd += "</tr>";
+  }
+  $calBody.innerHTML = trtd;
+}
+
+/**
+ * @param {string} val
+ */
+function createNewList(val) {
+  let id = new Date().getTime() + "";
+  let yy = init.activeDate.getFullYear();
+  let mm = init.activeDate.getMonth() + 1;
+  let dd = init.activeDate.getDate();
+  const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+
+  let date = yy + "." + init.addZero(mm) + "." + init.addZero(dd);
+
+  let eventData = {};
+  eventData["date"] = date;
+  eventData["memo"] = val;
+  eventData["complete"] = false;
+  eventData["id"] = id;
+  init.event.push(eventData);
+  $todoList.appendChild(createLi(id, val, date));
+}
+
+loadYYMM(init.today);
+loadDate(init.today.getDate(), init.today.getDay());
+
+$btnNext.addEventListener("click", () => loadYYMM(init.nextMonth()));
+$btnPrev.addEventListener("click", () => loadYYMM(init.prevMonth()));
+
+$calBody.addEventListener("click", (e) => {
+  if (e.target.classList.contains("day")) {
+    if (init.activeDTag) {
+      init.activeDTag.classList.remove("day-active");
+    }
+    let day = Number(e.target.textContent);
+    loadDate(day, e.target.cellIndex);
+    e.target.classList.add("day-active");
+    init.activeDTag = e.target;
+    init.activeDate.setDate(day);
+    reloadTodo();
+  }
+});
