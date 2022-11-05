@@ -22,7 +22,7 @@
 
 .my-calendar {
   position: relative;
-  top: 200px;
+  top: 220px;
   right: 50px;
   width: 100%;
   max-width: 100%;
@@ -57,7 +57,7 @@
 }
 
 .clicked-date {
-  box-shadow: 1px 1px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .clicked-date .cal-day {
@@ -100,6 +100,9 @@
 .ctr-box .btn-cal.next:after {
   content: ">";
 }
+.ctr-box button:hover {
+  transform: scale(1.2);
+}
 
 .cal-table {
   width: 100%;
@@ -108,7 +111,7 @@
   width: 14.2857%;
   padding-bottom: 5px;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 400;
 }
 .cal-table td {
   padding: 3px 0;
@@ -120,8 +123,12 @@
   position: relative;
   cursor: pointer;
 }
+.cal-table td.day:hover {
+  transform: scale(1.2);
+}
+
 .cal-table td.today {
-  background: #ffd255;
+  background: #ffdf87;
   border-radius: 50%;
   color: #fff;
 }
