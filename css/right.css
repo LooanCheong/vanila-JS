@@ -15,7 +15,7 @@
 }
 
 /* 달력 파트 */
-.container {
+.right .container {
   width: 90%;
   height: 50%;
 }
@@ -23,6 +23,7 @@
 .my-calendar {
   position: relative;
   top: 200px;
+  right: 50px;
   width: 100%;
   max-width: 100%;
   min-width: 100%;
