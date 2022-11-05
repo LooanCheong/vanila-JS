@@ -73,11 +73,6 @@ function doneToDo(event) {
   saveToDos();
 }
 
-const toDoLi = document.querySelectorAll("#todo-list li");
-toDoLi.forEach((li) => {
-  li.addEventListener("click", doneToDo);
-});
-
 function doneToDoSpan(event) {
   const tar = event.target.parentElement;
   for (const i in toDos) {
@@ -94,7 +89,5 @@ function doneToDoSpan(event) {
   saveToDos();
 }
 
-const toDoSpan = document.querySelectorAll("#todo-list li span");
-toDoSpan.forEach((span) => {
-  span.addEventListener("click", doneToDoSpan);
-});
+$(document).on("click", "#todo-list li", doneToDo);
+$(document).on("click", "#todo-list li span", doneToDoSpan);
