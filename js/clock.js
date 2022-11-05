@@ -4,10 +4,11 @@ const today = document.querySelector("h3#today");
 
 function getClock() {
   const date = new Date();
-  let hours = String(date.getHours()).padStart(2, "0");
+  let hours = date.getHours();
   if (hours > 12) {
     hours = hours - 12;
   }
+  hours = String(hours).padStart(2, "0");
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
   let ampm = "";
