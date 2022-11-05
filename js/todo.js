@@ -28,6 +28,9 @@ function paintToDo(newTodo) {
   li.appendChild(button);
   li.appendChild(span);
   toDoList.appendChild(li);
+  if (newTodo.is_done === true) {
+    span.classList.add("finishToDo");
+  }
 }
 
 function handleToDoSubmit(event) {
